@@ -20,6 +20,7 @@ Screenshots of the application will be added after the project is completed.
 - JavaScript
 - HTML
 - CSS
+- Multer
 - Git & GitHub
 
 ## Getting Started
@@ -43,6 +44,7 @@ Screenshots of the application will be added after the project is completed.
 - As a user, I want to view all available cars so that I can find a car to buy.
 - As a user, I want to view the details of a car so that I can learn more about it.
 - As a user, I want to add a car listing so that I can sell my car.
+- As a user, I want to upload an image of my car so that buyers can see it.
 - As a user, I want to edit my car listing so that I can update its information.
 - As a user, I want to delete my car listing so that I can remove a car I am no longer selling.
 
@@ -58,53 +60,59 @@ The application uses three main models:
 
 ### User
 
-- username
-- password
+- `_id`
+- `username`
+- `password`
 
-### Car
+### CarListing
 
-- brand
-- model
-- year
-- price
-- mileage
-- description
-- owner
+- `_id`
+- `streetAddress`
+- `brand`
+- `model`
+- `year`
+- `price`
+- `mileage`
+- `description`
+- `image`
+- `owner`
 
 ### Review
 
-- reviewBody
-- rating
-- creator
-- car
+- `_id`
+- `reviewBody`
+- `rating`
+- `creator`
+- `carListing`
 
 ### Relationships
 
-- A User can own many Cars.
+- A User can own many CarListings.
 - A User can write many Reviews.
-- A Car can have many Reviews.
-- Each Car belongs to one User.
-- Each Review belongs to one User and one Car.
+- A CarListing can have many Reviews.
+- Each CarListing belongs to one User.
+- Each Review belongs to one User and one CarListing.
 
 ## Routes
 
 | Method | Route | Description |
-|---------|-------|-------------|
-| GET | / | Home page |
-| GET | /cars | List all cars |
-| GET | /cars/new | New car form |
-| POST | /cars | Create car |
-| GET | /cars/:id | View car |
-| GET | /cars/:id/edit | Edit car form |
-| PUT | /cars/:id | Update car |
-| DELETE | /cars/:id | Delete car |
-| POST | /cars/:id/reviews | Create review |
-| DELETE | /cars/:id/reviews/:reviewId | Delete review |
+|--------|-------|-------------|
+| GET | `/` | Home page |
+| GET | `/car-listings` | List all car listings |
+| GET | `/car-listings/new` | New car listing form |
+| POST | `/car-listings` | Create car listing |
+| GET | `/car-listings/:id` | View car listing |
+| GET | `/car-listings/:id/edit` | Edit car listing form |
+| PUT | `/car-listings/:id` | Update car listing |
+| DELETE | `/car-listings/:id` | Delete car listing |
+| POST | `/car-listings/:id/reviews` | Create review |
+| DELETE | `/car-listings/:id/reviews/:reviewId` | Delete review |
 
 ## Features
 
 - User authentication
 - Create car listings
+- Upload car images
 - View all car listings
 - View individual car details
 - Edit car listings
@@ -112,15 +120,14 @@ The application uses three main models:
 - Add reviews
 - Delete reviews
 - User ownership of car listings
+- Store car images in the `public/uploads` directory
 
 ## Future Enhancements
 
 - Search for cars
 - Filter cars by brand and price
-- Upload car images
 - Add favorites
 - Add messaging between buyers and sellers
 - Add advanced car filters
 
 ## Credits
-
