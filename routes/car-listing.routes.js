@@ -36,3 +36,12 @@ res.redirect("/car-listings");
 
 });
 
+
+ //// to get cars selles page 
+router.get("/", async (req, res) => {
+    const carListings = await CarListing.find();
+    res.render("cars.ejs", { carListings });
+});
+
+//
+module.exports = router;
