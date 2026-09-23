@@ -82,5 +82,11 @@ If no new image is uploaded** - `req.file` does not exist → keep the old image
     res.redirect(`/car-listings/${carListing._id}`);
 });
 
+// delete car 
+router.delete("/:carId", async (req, res) => {
 
+    const deleteCar = await CarListing.findByIdAndDelete(req.params.carId);
+
+    res.redirect("/car-listings");
+});
 module.exports = router;
