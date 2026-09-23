@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+</head>
+<body>
+<h1>Cars for Sale</h1>
+
+<% for (let oneCar of carListings) { %>
+     // we but the car model and brand into link to user to find detail of car
+    <h2>
+        <a href="/car-listings/<%= oneCar._id %>">
+            <%= oneCar.brand %> <%= oneCar.model %>
+        </a>
+    </h2>
+/////// the image  of the car 
+    <img src="/uploads/<%= oneCar.image %>" alt="Car Image" width="300">
+
+    <p>Year: <%= oneCar.year %></p>
+    <p>Price: <%= oneCar.price %></p>
+    <p>Mileage: <%= oneCar.mileage %></p>
+
+<% } %>
+
+
+</body>
+</html>

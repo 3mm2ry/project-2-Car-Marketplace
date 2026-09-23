@@ -7,6 +7,8 @@ const session = require('express-session');
 const methodOverride = require('method-override')
 const {MongoStore} = require("connect-mongo");
 const connectToDB = require('./db.js')
+const dns = require("dns")
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 
 // middleware imports
 const isSignedIn = require("./middleware/is-signed-in.js");
@@ -15,7 +17,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 // routes Imports
 const authController = require("./routes/auth.routes.js");
 const indexController = require("./routes/index.routes.js");
-
+const carListingController = require("./routes/car-listing.routes.js");
 
 // Middleware
 app.use(express.static('public')) // my app will serve all static files from public folder
@@ -53,7 +55,7 @@ app.use(passUserToView)
 // Routes go here
 app.use('/auth',authController)
 app.use('/',indexController)
-
+app.use("/car-listings", carListingController);
 
 
 

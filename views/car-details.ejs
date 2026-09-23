@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+</head>
+<body>
+
+    <h1><%= carListing.brand %> <%= carListing.model %></h1>
+
+    <img src="/uploads/<%= carListing.image %>" alt="Car Image" width="400">
+
+    <p>Year: <%= carListing.year %></p>
+    <p>Price: <%= carListing.price %></p>
+    <p>Mileage: <%= carListing.mileage %></p>
+    <p>Location: <%= carListing.streetAddress %></p>
+    <p>Description: <%= carListing.description %></p>
+
+    <a href="/car-listings/<%= carListing._id %>/edit">Edit Car</a>
+
+    <form action="/car-listings/<%= carListing._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Car</button>
+</form>
+
+</body>
+</html>
