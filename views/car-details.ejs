@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Details</title>
 </head>
+    <%- include('./partials/navbar') %>
 <body>
 
     <h1><%= carListing.brand %> <%= carListing.model %></h1>
@@ -39,15 +40,8 @@
 
 <h2>Reviews</h2>
 
-<% for (let oneReview of reviews) { %>
-
-    <p><%= oneReview.creator.username %></p>
-    <p><%= oneReview.reviewBody %></p>
-    <p>Rating: <%= oneReview.rating %>/5</p>
-
-<% } %>
-
-<!-- to delete the reviews
+<h2>Reviews</h2>
+<!--  to show the reviews and button to delete
  -->
 <% for (let oneReview of reviews) { %>
 
@@ -60,5 +54,7 @@
     </form>
 
 <% } %>
+
+
 </body>
 </html>
