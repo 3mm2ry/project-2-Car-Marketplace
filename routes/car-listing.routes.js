@@ -91,6 +91,18 @@ router.delete("/:carId", async (req, res) => {
     res.redirect("/car-listings");
 });
 
+/// reviews cars 
+router.post("/:carId/reviews", isSignedIn, async (req, res) => {
 
+
+    const review = await Review.create({
+        reviewBody: req.body.reviewBody,
+        rating: req.body.rating,
+        creator: req.session.user._id,
+        carListing: req.params.carId
+    });
+
+    res.redirect(`/car-listings/${req.params.carId}`);
+});
 
 module.exports = router;
