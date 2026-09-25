@@ -49,7 +49,8 @@ router.get("/:carId", async (req, res) => {
                                     /// to get the id from url ex:/car-listings/68d123abc
     const carListing = await CarListing.findById(req.params.carId);
                 /// Get all reviews where the `carListing` matches the car ID from the URL.
-      const reviews = await Review.find({ carListing: req.params.carId });
+const reviews = await Review.find({ carListing: req.params.carId }).populate("creator");
+    //// Use populate() to get the reviewer's username instead of the user ID.
 
     res.render("car-details.ejs", { carListing,reviews  });
 });
