@@ -48,8 +48,10 @@ router.get("/", async (req, res) => {
 router.get("/:carId", async (req, res) => {
                                     /// to get the id from url ex:/car-listings/68d123abc
     const carListing = await CarListing.findById(req.params.carId);
+                /// Get all reviews where the `carListing` matches the car ID from the URL.
+      const reviews = await Review.find({ carListing: req.params.carId });
 
-    res.render("car-details.ejs", { carListing });
+    res.render("car-details.ejs", { carListing,reviews  });
 });
 
 ////////// git the edit page 
