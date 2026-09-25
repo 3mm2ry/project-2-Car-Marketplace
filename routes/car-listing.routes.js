@@ -108,4 +108,12 @@ router.post("/:carId/reviews", isSignedIn, async (req, res) => {
     res.redirect(`/car-listings/${req.params.carId}`);
 });
 
+//// delete reviews
+router.delete("/:carId/reviews/:reviewId", async (req, res) => {
+
+    const review = await Review.findByIdAndDelete(req.params.reviewId);
+
+    res.redirect(`/car-listings/${req.params.carId}`);
+});
+
 module.exports = router;
