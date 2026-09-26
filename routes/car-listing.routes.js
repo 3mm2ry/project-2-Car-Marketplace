@@ -56,15 +56,24 @@ const reviews = await Review.find({ carListing: req.params.carId }).populate("cr
 });
 
 ////////// git the edit page 
-router.get("/:carId/edit", async (req, res) => {
+router.get("/:carId/edit",isSignedIn, async (req, res) => {
     const carListing = await CarListing.findById(req.params.carId);
+          // Check if the user owns the car
+        if (carListing.owner.toString() !== req.session.user._id) {
+        return res.send("You are not allowed to edit this car");
+    }
 
     res.render("edit-car.ejs", { carListing });
 });
  ///// post the edit  page 
-router.put("/:carId", upload.single("image"), async (req, res) => {
+router.put("/:carId",isSignedIn, upload.single("image"), async (req, res) => {
 
     const carListing = await CarListing.findById(req.params.carId);
+            // Check if the user owns the car
+        if (carListing.owner.toString() !== req.session.user._id) {
+        return res.send("You are not allowed to edit this car");
+    }
+
 
     carListing.streetAddress = req.body.streetAddress;
     carListing.brand = req.body.brand;
