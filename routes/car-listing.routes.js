@@ -39,7 +39,7 @@ res.redirect("/car-listings");
 
 
  //// to get cars selles page 
-router.get("/", async (req, res) => {
+router.get("/",async (req, res) => {
     const carListings = await CarListing.find();
     res.render("cars.ejs", { carListings });
 });
@@ -96,9 +96,13 @@ If no new image is uploaded** - `req.file` does not exist → keep the old image
 });
 
 // delete car 
-router.delete("/:carId", async (req, res) => {
+router.delete("/:carId",isSignedIn, async (req, res) => {
 
     const deleteCar = await CarListing.findByIdAndDelete(req.params.carId);
+       // Check if the user owns the car
+    if (carListing.owner.toString() !== req.session.user._id) {
+        return res.send("You are not allowed to delete this car");
+    }
 
     res.redirect("/car-listings");
 });
@@ -118,9 +122,13 @@ router.post("/:carId/reviews", isSignedIn, async (req, res) => {
 });
 
 //// delete reviews
-router.delete("/:carId/reviews/:reviewId", async (req, res) => {
+router.delete("/:carId/reviews/:reviewId",isSignedIn, async (req, res) => {
 
     const review = await Review.findByIdAndDelete(req.params.reviewId);
+        // Check if the user owns the review
+    if (review.creator.toString() !== req.session.user._id) {
+        return res.send("You are not allowed to delete this review");
+    }
 
     res.redirect(`/car-listings/${req.params.carId}`);
 });
