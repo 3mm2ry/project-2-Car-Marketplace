@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <link rel="stylesheet" href="/css/style.css">
+
     <title>Cars</title>
 </head>
+
+
 <body>
 
     <%- include('./partials/navbar') %>
+
 
     <div class="cars-page">
 
         <h1>Cars for Sale</h1>
 
+
         <div class="cars-grid">
 
             <% for (let oneCar of carListings) { %>
 
-                <div class="car-card">
+                <div
+                    class="car-card"
+                    onclick="window.location.href='/car-listings/<%= oneCar._id %>'"
+                >
 
-<!--                     // we but the car model and brand into link to user to find detail of car
- -->                    <h2>
-                        <a href="/car-listings/<%= oneCar._id %>">
-                            <%= oneCar.brand %> <%= oneCar.model %>
-                        </a>
-                    </h2>
 
-<!--                     /////// the image of the car
- -->                    <img
-                        src="/uploads/<%= oneCar.image %>"
-                        alt="Car Image"
-                    >
+                    <div class="car-card-image">
+
+                        <img
+                            src="/uploads/<%= oneCar.image %>"
+                            alt="Car Image"
+                        >
+
+                    </div>
+
 
                     <div class="car-info">
 
-                        <p>Year: <%= oneCar.year %></p>
+                        <h2>
+                            <%= oneCar.brand %>
+                            <%= oneCar.model %>
+                        </h2>
 
-                        <p>Price: <%= oneCar.price %></p>
 
-                        <p>Mileage: <%= oneCar.mileage %></p>
+                        <div class="car-details-row">
+
+                            <span>
+                                Year: <%= oneCar.year %>
+                            </span>
+
+                            <span>
+                                Mileage: <%= oneCar.mileage %>
+                            </span>
+
+                        </div>
+
+
+                        <p class="car-price">
+                            $<%= oneCar.price %>
+                        </p>
+
+
+                        <span class="view-car-btn">
+                            View Details
+                        </span>
 
                     </div>
+
 
                 </div>
 
@@ -51,5 +86,7 @@
 
     </div>
 
+
 </body>
+
 </html>
