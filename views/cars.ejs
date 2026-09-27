@@ -3,28 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Cars</title>
 </head>
 <body>
-        <%- include('./partials/navbar') %>
-<h1>Cars for Sale</h1>
 
-<% for (let oneCar of carListings) { %>
-     // we but the car model and brand into link to user to find detail of car
-    <h2>
-        <a href="/car-listings/<%= oneCar._id %>">
-            <%= oneCar.brand %> <%= oneCar.model %>
-        </a>
-    </h2>
-/////// the image  of the car 
-    <img src="/uploads/<%= oneCar.image %>" alt="Car Image" width="300">
+    <%- include('./partials/navbar') %>
 
-    <p>Year: <%= oneCar.year %></p>
-    <p>Price: <%= oneCar.price %></p>
-    <p>Mileage: <%= oneCar.mileage %></p>
+    <div class="cars-page">
 
-<% } %>
+        <h1>Cars for Sale</h1>
 
+        <div class="cars-grid">
+
+            <% for (let oneCar of carListings) { %>
+
+                <div class="car-card">
+
+<!--                     // we but the car model and brand into link to user to find detail of car
+ -->                    <h2>
+                        <a href="/car-listings/<%= oneCar._id %>">
+                            <%= oneCar.brand %> <%= oneCar.model %>
+                        </a>
+                    </h2>
+
+<!--                     /////// the image of the car
+ -->                    <img
+                        src="/uploads/<%= oneCar.image %>"
+                        alt="Car Image"
+                    >
+
+                    <div class="car-info">
+
+                        <p>Year: <%= oneCar.year %></p>
+
+                        <p>Price: <%= oneCar.price %></p>
+
+                        <p>Mileage: <%= oneCar.mileage %></p>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    </div>
 
 </body>
 </html>

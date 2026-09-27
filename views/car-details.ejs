@@ -3,58 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/style.css">
+
     <title>Car Details</title>
 </head>
-    <%- include('./partials/navbar') %>
+
 <body>
 
-    <h1><%= carListing.brand %> <%= carListing.model %></h1>
+    <%- include('./partials/navbar') %>
 
-    <img src="/uploads/<%= carListing.image %>" alt="Car Image" width="400">
+    <div class="car-details">
 
-    <p>Year: <%= carListing.year %></p>
-    <p>Price: <%= carListing.price %></p>
-    <p>Mileage: <%= carListing.mileage %></p>
-    <p>Location: <%= carListing.streetAddress %></p>
-    <p>Description: <%= carListing.description %></p>
+        <h1><%= carListing.brand %> <%= carListing.model %></h1>
 
-    <a href="/car-listings/<%= carListing._id %>/edit">Edit Car</a>
+        <img
+            class="car-details-main-image"
+            src="/uploads/<%= carListing.image %>"
+            alt="Car Image"
+        >
 
-    <form action="/car-listings/<%= carListing._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Car</button>
-</form>
+        <p>Year: <%= carListing.year %></p>
 
-<h2>Leave a Review</h2>
+        <p>Price: <%= carListing.price %></p>
 
-<form action="/car-listings/<%= carListing._id %>/reviews" method="POST">
+        <p>Mileage: <%= carListing.mileage %></p>
 
-    <label for="reviewBody">Review:</label>
-    <textarea id="reviewBody" name="reviewBody" required></textarea>
+        <p>Location: <%= carListing.streetAddress %></p>
 
-    <label for="rating">Rating:</label>
-    <input type="number" id="rating" name="rating" min="1" max="5" required>
+        <p>Description: <%= carListing.description %></p>
 
-    <button type="submit">Submit Review</button>
 
-</form>
+        <a
+            class="btn"
+            href="/car-listings/<%= carListing._id %>/edit"
+        >
+            Edit Car
+        </a>
 
-<h2>Reviews</h2>
 
-<h2>Reviews</h2>
-<!--  to show the reviews and button to delete
- -->
-<% for (let oneReview of reviews) { %>
+        <form
+            action="/car-listings/<%= carListing._id %>?_method=DELETE"
+            method="POST"
+        >
+            <button type="submit">Delete Car</button>
+        </form>
 
-    <p><%= oneReview.creator.username %></p>
-    <p><%= oneReview.reviewBody %></p>
-    <p>Rating: <%= oneReview.rating %>/5</p>
 
-    <form action="/car-listings/<%= carListing._id %>/reviews/<%= oneReview._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Review</button>
-    </form>
+        <div class="reviews">
 
-<% } %>
+            <h2>Leave a Review</h2>
 
+            <form
+                action="/car-listings/<%= carListing._id %>/reviews"
+                method="POST"
+            >
+
+                <label for="reviewBody">Review:</label>
+
+                <textarea
+                    id="reviewBody"
+                    name="reviewBody"
+                    required
+                ></textarea>
+
+
+                <label for="rating">Rating:</label>
+
+                <input
+                    type="number"
+                    id="rating"
+                    name="rating"
+                    min="1"
+                    max="5"
+                    required
+                >
+
+
+                <button type="submit">Submit Review</button>
+
+            </form>
+
+
+            <h2>Reviews</h2>
+
+            <!-- to show the reviews and button to delete -->
+
+            <% for (let oneReview of reviews) { %>
+
+                <div class="review">
+
+                    <p>
+                        <%= oneReview.creator.username %>
+                    </p>
+
+                    <p>
+                        <%= oneReview.reviewBody %>
+                    </p>
+
+                    <p class="review-rating">
+                        Rating: <%= oneReview.rating %>/5
+                    </p>
+
+
+                    <form
+                        action="/car-listings/<%= carListing._id %>/reviews/<%= oneReview._id %>?_method=DELETE"
+                        method="POST"
+                    >
+                        <button type="submit">
+                            Delete Review
+                        </button>
+                    </form>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
