@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>My Cars</title>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar') %>
+
+    <div class="cars-page">
+
+        <h1>My Cars</h1>
+        <div class="cars-grid">
+
+    <% for (let oneCar of carListings) { %>
+
+        <div
+            class="car-card"
+            onclick="window.location.href='/car-listings/<%= oneCar._id %>'"
+        >
+
+            <div class="car-card-image">
+
+                <img
+                    src="/uploads/<%= oneCar.image %>"
+                    alt="Car Image"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <h2>
+                    <%= oneCar.brand %>
+                    <%= oneCar.model %>
+                </h2>
+
+                <div class="car-details-row">
+
+                    <span>
+                        Year: <%= oneCar.year %>
+                    </span>
+
+                    <span>
+                        Mileage: <%= oneCar.mileage %>
+                    </span>
+
+                </div>
+
+                <p class="car-price">
+                    $<%= oneCar.price %>
+                </p>
+
+                <span class="view-car-btn">
+                    View Details
+                </span>
+
+            </div>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+    </div>
+
+</body>
+</html>

@@ -17,7 +17,6 @@ a {
     text-decoration: none;
 }
 
-
 /* =========================
    Navbar
 ========================= */
@@ -28,23 +27,37 @@ nav {
     background: #1f2937;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 40px;
-    gap: 30px;
     position: relative;
     z-index: 100;
 }
 
-nav a {
+.navbar-welcome {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 30px;
+    padding-right: 30px;
+    border-right: 1px solid #6b7280;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar-links a {
     color: white;
     font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
 }
 
-nav a:hover {
+.navbar-links a:hover {
     color: #f97316;
 }
-
 
 /* =========================
    Homepage Hero

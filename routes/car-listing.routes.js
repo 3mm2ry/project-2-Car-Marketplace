@@ -44,6 +44,17 @@ router.get("/",async (req, res) => {
     res.render("cars.ejs", { carListings });
 });
 
+//// to get the my car page 
+router.get("/my-cars", isSignedIn, async (req, res) => {
+
+    const carListings = await CarListing.find({
+        owner: req.session.user._id
+    });
+
+    res.render("my-cars.ejs", { carListings });
+
+});
+
 /// to get cars detail page - after click the car detail url
 router.get("/:carId", async (req, res) => {
                                     /// to get the id from url ex:/car-listings/68d123abc
@@ -132,5 +143,7 @@ router.delete("/:carId/reviews/:reviewId",isSignedIn, async (req, res) => {
 
     res.redirect(`/car-listings/${req.params.carId}`);
 });
+
+
 
 module.exports = router;
