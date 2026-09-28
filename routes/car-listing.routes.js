@@ -109,11 +109,13 @@ If no new image is uploaded** - `req.file` does not exist → keep the old image
 // delete car 
 router.delete("/:carId",isSignedIn, async (req, res) => {
 
-    const deleteCar = await CarListing.findByIdAndDelete(req.params.carId);
+    const carListing = await CarListing.findById(req.params.carId);
        // Check if the user owns the car
     if (carListing.owner.toString() !== req.session.user._id) {
         return res.send("You are not allowed to delete this car");
     }
+
+    await CarListing.findByIdAndDelete(req.params.carId);
 
     res.redirect("/car-listings");
 });

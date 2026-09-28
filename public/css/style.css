@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
 /* =========================
    General
 ========================= */
@@ -8,9 +10,19 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef1f4;
-    color: #222;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #e5e7eb;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
 }
 
 a {
@@ -180,16 +192,35 @@ nav {
 ========================= */
 
 .cars-page {
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 25px 30px 60px;
+
+    min-height: 100vh;
+    padding: 50px 40px;
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
 }
 
 .cars-page h1 {
     text-align: center;
-    margin: 0 0 25px;
-    font-size: 42px;
-    color: #111;
+    margin: 0 0 18px;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cars-page h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 8px auto 0;
+    border-radius: 4px;
+    background: #f97316;
 }
 
 .cars-grid {
@@ -288,7 +319,7 @@ nav {
 .form-container {
     max-width: 650px;
     margin: 50px auto;
-    background: white;
+    background: #1f2937;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -297,12 +328,14 @@ nav {
 .form-container h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #ffffff;
 }
 
 .form-container label {
     display: block;
     margin-bottom: 7px;
     font-weight: bold;
+    color: #e5e7eb;
 }
 
 .form-container input,
@@ -311,7 +344,9 @@ nav {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    background: #374151;
+    color: #ffffff;
+    border: 1px solid #4b5563;
     border-radius: 6px;
     font-size: 15px;
 }
@@ -356,12 +391,15 @@ button:hover,
 ========================= */
 
 .car-details {
+    
     max-width: 1100px;
     margin: 25px auto;
-    background: white;
+    background: #1f2937;
     padding: 25px;
     border-radius: 18px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    
+    
 }
 
 
@@ -372,14 +410,14 @@ button:hover,
 .car-details-header {
     margin: 0 0 15px;
     padding: 0 0 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #4b5563;
     text-align: center;
 }
 
 .car-details-header h1 {
     margin: 0;
-    font-size: 38px;
-    color: #111;
+    font-size: 38px;    
+    color: #ffffff;
 }
 
 
@@ -403,7 +441,7 @@ button:hover,
 ========================= */
 
 .car-image-section {
-    background: white;
+    background: #1f2937;
     padding: 8px;
     border-radius: 10px;
 }
@@ -429,15 +467,15 @@ button:hover,
 }
 
 .car-info-item {
-    background: white;
+    background: #1f2937;
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #4b5563;
 }
 
 .car-info-item span {
     display: block;
-    color: #6b7280;
+    color: #9ca3af;
     font-size: 13px;
     margin-bottom: 3px;
 }
@@ -445,7 +483,7 @@ button:hover,
 .car-info-item strong {
     display: block;
     font-size: 17px;
-    color: #111;
+    color: #ffffff;
 }
 
 .car-info-item:nth-child(2) strong {
@@ -460,17 +498,18 @@ button:hover,
 .car-description {
     margin: 15px 0 0;
     padding: 15px 0 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #4b5563;
 }
 
 .car-description h2 {
     margin: 0 0 5px;
     font-size: 22px;
+    color: #ffffff;
 }
 
 .car-description p {
     margin: 0;
-    color: #555;
+    color: #d1d5db;
     line-height: 1.5;
     font-size: 15px;
 }
@@ -486,7 +525,7 @@ button:hover,
     gap: 10px;
     margin: 15px 0 0;
     padding: 0 0 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #4b5563;
 }
 
 .car-actions .btn {
@@ -500,11 +539,11 @@ button:hover,
 }
 
 .car-actions button {
-    background: #111;
+    background: #dc2626;
 }
 
 .car-actions button:hover {
-    background: #333;
+    background: #b91c1c;
 }
 
 
@@ -519,6 +558,7 @@ button:hover,
 .reviews h2 {
     font-size: 22px;
     margin: 0 0 10px;
+    color: #ffffff;
 }
 
 
@@ -527,7 +567,7 @@ button:hover,
 ========================= */
 
 .review-form {
-    background: #f7f7f7;
+    background: #374151;
     padding: 15px;
     border-radius: 10px;
     margin: 0 0 15px;
@@ -537,6 +577,7 @@ button:hover,
     display: block;
     margin: 0 0 5px;
     font-weight: bold;
+    color: #e5e7eb;
 }
 
 .review-form textarea {
@@ -545,9 +586,11 @@ button:hover,
     resize: vertical;
     padding: 10px;
     margin: 0 0 10px;
-    border: 1px solid #ccc;
+    background: #1f2937;
+    color: #ffffff;
+    border: 1px solid #4b5563;
     border-radius: 7px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 .review-form input {
@@ -555,7 +598,9 @@ button:hover,
     max-width: 120px;
     padding: 9px;
     margin: 0 0 10px;
-    border: 1px solid #ccc;
+    background: #1f2937;
+    color: #ffffff;
+    border: 1px solid #4b5563;
     border-radius: 7px;
 }
 
@@ -565,7 +610,7 @@ button:hover,
 ========================= */
 
 .review {
-    background: #f7f7f7;
+    background: #374151;
     padding: 12px;
     margin: 0 0 10px;
     border-radius: 9px;
@@ -575,10 +620,11 @@ button:hover,
     font-weight: bold;
     font-size: 16px;
     margin: 0 0 5px;
+    color: #ffffff;
 }
 
 .review-body {
-    color: #555;
+    color: #d1d5db;
     margin: 0 0 5px;
 }
 
@@ -600,7 +646,7 @@ button:hover,
 .auth-container {
     max-width: 450px;
     margin: 80px auto;
-    background: white;
+    background: #1f2937;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -609,19 +655,23 @@ button:hover,
 .auth-container h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #ffffff;
 }
 
 .auth-container label {
     display: block;
     margin-bottom: 7px;
     font-weight: bold;
+    color: #e5e7eb;
 }
 
 .auth-container input {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    background: #374151;
+    color: #ffffff;
+    border: 1px solid #4b5563;
     border-radius: 6px;
 }
 
