@@ -16,9 +16,9 @@ Users can create an account, add their cars, edit or delete their listings, view
 
 ![Home Page](photo/home-page.png)
 
-### Car Details Page
+### Cars  Page
 
-![Car Details Page](photo/car-details.png)
+![Cars  Page](photo/Cars-page.png)
 
 ## Technologies Used
 
