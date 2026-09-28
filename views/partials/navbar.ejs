@@ -1,11 +1,5 @@
 <nav class="navbar">
 
-    <% if (user) { %>
-        <div class="navbar-welcome">
-            Hello <%= user.username %>
-        </div>
-    <% } %>
-
     <div class="navbar-links">
 
         <a href="/">Homepage</a>
@@ -21,5 +15,17 @@
         <% } %>
 
     </div>
+
+    <% if (user) { %>
+
+        <div class="navbar-welcome">
+
+            <img src="/images/user.png" alt="User">
+
+            <span>Hello <%= user.username %></span>
+
+        </div>
+
+    <% } %>
 
 </nav>

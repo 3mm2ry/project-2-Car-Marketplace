@@ -16,7 +16,6 @@ body {
 a {
     text-decoration: none;
 }
-
 /* =========================
    Navbar
 ========================= */
@@ -31,15 +30,6 @@ nav {
     padding: 0 40px;
     position: relative;
     z-index: 100;
-}
-
-.navbar-welcome {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    margin-right: 30px;
-    padding-right: 30px;
-    border-right: 1px solid #6b7280;
 }
 
 .navbar-links {
@@ -59,6 +49,26 @@ nav {
     color: #f97316;
 }
 
+.navbar-welcome {
+    position: absolute;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(220, 38, 38, 0.15);
+    padding: 7px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.navbar-welcome img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 /* =========================
    Homepage Hero
 ========================= */
